@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .tablo{
+        width: 600px;
+        height: 600px;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: black;
+    }
+    img{
+        border: 10px 10px black;
+        width: 140px;
+        height: 140px;
+    }
+    input{
+        width: 80px;
+        height: 30px;
+    }
+    div{
+        border: 10px 10px black;
+        gap: 10px;
+        width: 140px;
+        height: 140px;
+        background-color: bisque;
+        display: flex;  
+        flex-direction: column;
+        align-items: center;
+    }
+    button{
+      width: 55px;
+      height: 25px;
+    }
+    .sayac{
+        width: 50px;
+        height: 50px;
+        background-color: aqua;
+        font-size: xx-large;
+    }
+</style>
+<body>
+   <div class="tablo">
+    <img src="https://cdn.dsmcdn.com/ty749/product/media/images/20230225/19/289574421/868714314/1/1_org_zoom.jpg" alt="">
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Real_Madrid_CF.svg/800px-Real_Madrid_CF.svg.png" alt="">
+    <img src="https://upload.wikimedia.org/wikipedia/tr/thumb/f/f4/PSG_logosu.svg/1200px-PSG_logosu.svg.png" alt="">
+    <img src="https://upload.wikimedia.org/wikipedia/tr/3/3f/150px-Liverpool_FC_logo.png" alt="">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/1200px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png" alt="">
+    <div ><p class="b11" ></p><input class="b1" type="text" id="inputPlayer"><button id="mb1" onclick="checkPlayer()">kontrol</button></div>
+    <div ><p class="b22" ></p><input class="b2" type="text" id="inputPlayer2"><button id="mb2" onclick="checkPlayer2()">kontrol</button></div>
+    <div ><p class="b33" ></p><input class="b3" type="text"
+      id="inputPlayer3"><button id="mb3" onclick="checkPlayer3()">kontrol</button></div>
+    <img src="https://pbs.twimg.com/profile_images/1455113411638054916/YjZfUzxu_400x400.jpg" alt="">
+    <div ><p class="b44" ></p><input class="b4" type="text" id="inputPlayer4"><button id="mb4" onclick="checkPlayer4()">kontrol</button></div>
+    <div ><p class="b55" ></p><input class="b5" type="text" id="inputPlayer5"><button id="mb5" onclick="checkPlayer5()">kontrol</button></div>
+    <div ><p class="b66" ></p><input class="b6" type="text" id="inputPlayer6"><button id="mb6" onclick="checkPlayer6()">kontrol</button></div>
+    <img src="https://upload.wikimedia.org/wikipedia/tr/thumb/9/96/FCB.svg/1200px-FCB.svg.png" alt="">
+    <div ><p class="b77" ></p><input class="b7" type="text" id="inputPlayer7"><button id="mb7" onclick="checkPlayer7()">kontrol</button></div>
+    <div ><p class="b88" ></p><input class="b8" type="text" id="inputPlayer8"><button id="mb8" onclick="checkPlayer8()">kontrol</button></div>
+    <div ><p class="b99" ></p><input class="b9" type="text" id="inputPlayer9"><button id="mb9" onclick="checkPlayer9()">kontrol</button></div>
+   </div> 
+   <h1>sıra:</h1> 
+   <h2 id="turn">1</h2>
+   <div class="sayac" >
+    
+  </div>
+   <h3>iki takımın kesişim yerine iki takımda da oynamış futbolcuları bilmeye çalışacaz.oyuncu1 x ile oyuncu2 o ile temsil edilmektedir oyuncu eğer 30 saniye içinde cevap veremez veya yanlış cevap verir ise  sıra rakibe geçer.Küçük-büyük harf duyarlılığı yoktur.</h3>
+   <script>
+    let b1=document.querySelector(".b1");
+    let b2=document.querySelector(".b2");
+    let b3=document.querySelector(".b3");
+    let b4=document.querySelector(".b4");
+    let b5=document.querySelector(".b5");
+    let b6=document.querySelector(".b6");
+    let b7=document.querySelector(".b7");
+    let b8=document.querySelector(".b8");
+    let b9=document.querySelector(".b9");
+    let b11=document.querySelector(".b11");
+    let b22=document.querySelector(".b22");
+    let b33=document.querySelector(".b33");
+    let b44=document.querySelector(".b44");
+    let b55=document.querySelector(".b55");
+    let b66=document.querySelector(".b66");
+    let b77=document.querySelector(".b77");
+    let b88=document.querySelector(".b88");
+    let b99=document.querySelector(".b99");
+    let h1=document.querySelector("h1");
+    let h2=document.querySelector("h2");
+    let f1 = ['alonso', 'kross', 'robben'];
+    let f2 = ['coman', 'hernandez', 'moting'];
+    let f3 = ['alonso', 'mane', 'coutinho'];
+    let f4 = ['ronaldo', 'anelka', 'khedira'];
+    let f5 = ['coman', 'rabiot', 'anelka','matuidi','buffon'];
+    let f6 = ['anelka', 'emre', 'arthur'];
+    let f7 = ['ronaldo', 'eto', 'figo'];
+    let f8 = ['messi', 'ronaldinho','neymar','zlatan','alves','dembele'];
+    let f9 = ['suarez', 'coutinho', 'mascherano'];
+    const s = document.querySelector(".sayac");
+        let i = 0;
+
+        function sayac() {
+            s.innerText = i;
+            i++;
+            if (i > 30) {
+              if (h2.textContent==1){
+              h2.textContent ='2';  
+                i=0;
+              }
+                else {
+                h2.textContent ='1';
+                i=0;
+                }
+            }
+        }
+
+        const interval = setInterval(sayac, 1000);
+ function checkPlayer() {
+  let inputValue = document.getElementById('inputPlayer').value.toLowerCase();
+  if (h2.textContent==1) {
+  if (f1.includes(inputValue)) {
+    alert('vaar ' + inputValue  );
+    document.getElementById('inputPlayer').disabled=true;
+    document.getElementById("mb1").disabled = true;
+    b11.innerHTML='x';
+    i=0;
+  } else {
+    alert('yook ' + inputValue );
+    i=0;
+  }
+  h2.textContent ='2';
+} else {
+    if (f1.includes(inputValue)) {
+    alert('vaar ' + inputValue  );
+    document.getElementById('inputPlayer').disabled=true;
+    document.getElementById("mb1").disabled = true;
+    b11.innerHTML='o';
+    i=0;
+  } else {
+    alert('yook ' + inputValue );
+    i=0;
+  }
+  h2.textContent ='1';
+ }
+ }
+ function checkPlayer2() {
+  let inputValue = document.getElementById('inputPlayer2').value.toLowerCase();
+  if (h2.textContent==1) {
+  if (f2.includes(inputValue)) {
+    alert('vaar ' + inputValue  );
+    document.getElementById('inputPlayer2').disabled=true;
+    document.getElementById("mb2").disabled = true;
+    b22.innerHTML='x';
+    i=0;
+  } else {
+    alert('yook ' + inputValue );
+    i=0;
+  }
+  h2.textContent ='2';
+} else {
+    if (f2.includes(inputValue)) {
+    alert('vaar ' + inputValue  );
+    document.getElementById('inputPlayer2').disabled=true;
+    document.getElementById("mb2").disabled = true;
+    b22.innerHTML='o';
+    i=0;
+  } else {
+    alert('yook ' + inputValue );
+    i=0;
+  }
+  h2.textContent ='1';
+ }
+ }  
+ function checkPlayer3() {
+  let inputValue = document.getElementById('inputPlayer3').value.toLowerCase();
+  if (h2.textContent==1) {
+  if (f3.includes(inputValue)) {
+    alert('vaar ' + inputValue  );
+    document.getElementById('inputPlayer3').disabled=true;
+    document.getElementById("mb3").disabled = true;
+    b33.innerHTML='x';
+    i=0;
+  } else {
+    alert('yook ' + inputValue );
+    i=0;
+  }
+  h2.textContent ='2';
+} else {
+    if (f3.includes(inputValue)) {
+    alert('vaar ' + inputValue  );
+    document.getElementById('inputPlayer3').disabled=true;
+    document.getElementById("mb3").disabled = true;
+    b33.innerHTML='o';
+    i=0;
+  } else {
+    alert('yook ' + inputValue );
+    i=0;
+  }
+  h2.textContent ='1';
+ }
+ }  
+ function checkPlayer4() {
+  let inputValue = document.getElementById('inputPlayer4').value.toLowerCase();
+  if (h2.textContent==1) {
+  if (f4.includes(inputValue)) {
+    alert('vaar ' + inputValue  );
+    document.getElementById('inputPlayer4').disabled=true;
+    document.getElementById("mb4").disabled = true;
+    b44.innerHTML='x';
+    i=0;
+  } else {
+    alert('yook ' + inputValue );
+    i=0;
+  }
+  h2.textContent ='2';
+} else {
+    if (f4.includes(inputValue)) {
+    alert('vaar ' + inputValue  );
+    document.getElementById('inputPlayer4').disabled=true;
+    document.getElementById("mb4").disabled = true;
+    b44.innerHTML='o';
+    i=0;
+  } else {
+    alert('yook ' + inputValue );
+    i=0;
+  }
+  h2.textContent ='1';
+ }
+ }
+ function checkPlayer5() {
+  let inputValue = document.getElementById('inputPlayer5').value.toLowerCase();
+  if (h2.textContent==1) {
+  if (f5.includes(inputValue)) {
+    alert('vaar ' + inputValue  );
+    document.getElementById('inputPlayer5').disabled=true;
+    document.getElementById("mb5").disabled = true;
+    b55.innerHTML='x';
+    i=0;
+  } else {
+    alert('yook ' + inputValue );
+    i=0;
+  }
+  h2.textContent ='2';
+} else {
+    if (f5.includes(inputValue)) {
+    alert('vaar ' + inputValue  );
+    document.getElementById('inputPlayer5').disabled=true;
+    document.getElementById("mb5").disabled = true;
+    b55.innerHTML='o';
+    i=0;
+  } else {
+    alert('yook ' + inputValue );
+    i=0;
+  }
+  h2.textContent ='1';
+ }
+ }
+ function checkPlayer6() {
+  let inputValue = document.getElementById('inputPlayer6').value.toLowerCase();
+  if (h2.textContent==1) {
+  if (f6.includes(inputValue)) {
+    alert('vaar ' + inputValue  );
+    document.getElementById('inputPlayer6').disabled=true;
+    document.getElementById("mb6").disabled = true;
+    b66.innerHTML='x';
+    i=0;
+  } else {
+    alert('yook ' + inputValue );
+    i=0;
+  }
+  h2.textContent ='2';
+} else {
+    if (f6.includes(inputValue)) {
+    alert('vaar ' + inputValue  );
+    document.getElementById('inputPlayer6').disabled=true;
+    document.getElementById("mb6").disabled = true;
+    b66.innerHTML='o';
+    i=0;
+  } else {
+    alert('yook ' + inputValue );
+    i=0;
+  }
+  h2.textContent ='1';
+ }
+ }  
+ function checkPlayer7() {
+  let inputValue = document.getElementById('inputPlayer7').value.toLowerCase();
+  if (h2.textContent==1) {
+  if (f7.includes(inputValue)) {
+    alert('vaar ' + inputValue  );
+    document.getElementById('inputPlayer7').disabled=true;
+    document.getElementById("mb7").disabled = true;
+    b77.innerHTML='x';
+    i=0;
+  } else {
+    alert('yook ' + inputValue );
+    i=0;
+  }
+  h2.textContent ='2';
+} else {
+    if (f7.includes(inputValue)) {
+    alert('vaar ' + inputValue  );
+    document.getElementById('inputPlayer7').disabled=true;
+    document.getElementById("mb7").disabled = true;
+    b77.innerHTML='o';
+    i=0;
+  } else {
+    alert('yook ' + inputValue );
+    i=0;
+  }
+  h2.textContent ='1';
+ }
+ }  
+ function checkPlayer8() {
+  let inputValue = document.getElementById('inputPlayer8').value.toLowerCase();
+  if (h2.textContent==1) {
+  if (f8.includes(inputValue)) {
+    alert('vaar ' + inputValue  );
+    document.getElementById('inputPlayer8').disabled=true;
+    document.getElementById("mb8").disabled = true;
+    b88.innerHTML='x';
+    i=0;
+  } else {
+    alert('yook ' + inputValue );
+    i=0;
+  }
+  h2.textContent ='2';
+} else {
+    if (f8.includes(inputValue)) {
+    alert('vaar ' + inputValue  );
+    document.getElementById('inputPlayer8').disabled=true;
+    document.getElementById("mb8").disabled = true;
+    b88.innerHTML='o';
+    i=0;
+  } else {
+    alert('yook ' + inputValue );
+    i=0;
+  }
+  h2.textContent ='1';
+ }
+ }
+ function checkPlayer9() {
+  let inputValue = document.getElementById('inputPlayer9').value.toLowerCase();
+  if (h2.textContent==1) {
+  if (f9.includes(inputValue)) {
+    alert('vaar ' + inputValue  );
+    document.getElementById('inputPlayer9').disabled=true;
+    document.getElementById("mb9").disabled = true;
+    b99.innerHTML='x';
+    i=0;
+  } else {
+    alert('yook ' + inputValue );
+    i=0;
+  }
+  h2.textContent ='2';
+} else {
+    if (f9.includes(inputValue)) {
+    alert('vaar ' + inputValue  );
+    document.getElementById('inputPlayer9').disabled=true;
+    document.getElementById("mb9").disabled = true;
+    b99.innerHTML='o';
+    i=0;
+  } else {
+    alert('yook ' + inputValue );
+    i=0;
+  }
+  h2.textContent ='1';
+ }
+ }
+   </script>
+</body>
+</html>
